@@ -1,9 +1,6 @@
 // ❗ ЗАДАЧА #1
 
-// Добавь выражение проверки совершеннолетия пользователя, значения параметра age, в условие для инструкции if.
-
-// Если пользователь совершеннолетний, должен выполняться блок if и в переменную message записывается строка "You are an adult".
-// В противном случае должен выполняться блок else и записывается строка "You are a minor".
+// Запиши условие в инструкции if так, чтобы функция работала правильно.
 
 // ТЕСТЫ
 
@@ -13,16 +10,15 @@
 // ✅ Вызов checkAge(8) возвращает "You are a minor"
 // ✅ Вызов checkAge(14) возвращает "You are a minor"
 // ✅ Вызов checkAge(38) возвращает "You are an adult"
+// ✅ В теле функции есть только одна инструкция if
+// ✅ В теле функции нет инструкции else или else if
 
 
 // function checkAge(age) {
-//   let message;
 //   if (age >= 18) {
-//     message = 'You are an adult';
-//   } else {
-//     message = 'You are a minor';
+//     return "You are an adult";
 //   }
-//   return message;
+//   return "You are a minor";
 // }
 // console.log(checkAge(20));
 // console.log(checkAge(8));
@@ -33,189 +29,63 @@
 
 // ❗ ЗАДАЧА #2
 
-// Функция checkStorage(available, ordered) проверяет возможность оформления заказа и возвращает сообщение о результате. Она объявляет два параметра, значения которых будут задаваться во время её вызова:
+// Функция checkPassword получает пароль пользователя в параметр password, проверяет его на совпадение с паролем администратора в переменной ADMIN_PASSWORD и возвращает сообщение о результате сравнения.
 
-// available - общее количество товаров на складе
-// ordered - единиц товара в заказе
+// Проведи рефакторинг кода функции checkPassword используя паттерн «ранний возврат»:
 
-// Используя ветвления дополни код функции так, что:
-
-// Если в заказе указано число, превышающее количество товаров на складе, в переменную message записывается строка "Not enough goods in stock!".
-// В противном случае записывается строка "Order is processed, our manager will contact you.".
-
-// ТЕСТЫ
-
-// ✅ Объявлена функция checkStorage(available, ordered).
-// ✅ Вызов checkStorage(100, 50) возвращает "Order is processed, our manager will contact you."
-// ✅ Вызов checkStorage(100, 130) возвращает "Not enough goods in stock!"
-// ✅ Вызов checkStorage(200, 20) возвращает "Order is processed, our manager will contact you."
-// ✅ Вызов checkStorage(200, 150) возвращает "Order is processed, our manager will contact you."
-// ✅ Вызов checkStorage(150, 180) возвращает "Not enough goods in stock!"
-
-
-// function checkStorage(available, ordered) {
-//   let message;
-// if (available >= ordered) {
-//   message = "Order is processed, our manager will contact you.";
-// } else {
-//   message = "Not enough goods in stock!";
-// }
-//   return message;
-// }
-// console.log(checkStorage(100, 50));
-// console.log(checkStorage(100, 130));
-// console.log(checkStorage(200, 20));
-// console.log(checkStorage(200, 150));
-// console.log(checkStorage(150, 180));
-
-
-
-// ❗ ЗАДАЧА #3
-
-// Замени выражения со стандартными математеческими операторами на комбинированный оператор присвоения с добавлением, вычитанием, умножением и делением.
-
-// ТЕСТЫ
-
-// ✅ Значение переменной a равно 7
-// ✅ Использован оператор +=
-// ✅ Значение переменной b равно 6
-// ✅ Использован оператор -=
-// ✅ Значение переменной c равно 45
-// ✅ Использован оператор *=
-// ✅ Значение переменной d равно 2
-// ✅ Использован оператор /=
-
-
-// let a = 5;
-// let b = 10;
-// let c = 15;
-// let d = 20;
-// a += 2;
-// b -= 4;
-// c *= 3;
-// d /= 10;
-// console.log(a);
-// console.log(b);
-// console.log(c);
-// console.log(d);
-
-
-
-// ❗ ЗАДАЧА #4
-
-// Станция по продаже ремонтных дроидов готова к запуску, осталось написать программное обеспечение для отдела продаж.
-
-// Функция makeTransaction(pricePerDroid, orderedQuantity, customerCredits) выполняет транзакцию по продаже дроидов и возвращает сообщение о результате операции. Она объявляет три параметра, значения которых будут задаваться во время её вызова:
-
-// pricePerDroid - цена одного дроида
-// orderedQuantity - кол-во заказанных дроидов
-// customerCredits - сумма средств на счету клиента
-
-// Дополни её следующим функционалом:
-
-// Объяви переменную totalPrice для хранения общей суммы заказа и присвой ей выражение расчёта этой суммы.
-// Добавь проверку сможет ли клиент оплатить заказ:
-// если сумма к оплате превышает количество кредитов на счету клиента, запиши в переменную message строку "Insufficient funds!";
-// в противном случае, вычти сумму покупки со счёта клиента и запиши в переменную message сообщение: "You ordered <число> droids, you have <число> credits left".
-
-// ТЕСТЫ
-
-// ✅ Объявлена функция makeTransaction(pricePerDroid, orderedQuantity, customerCredits)
-// ✅ Вызов makeTransaction(3000, 5, 23000) возвращает "You ordered 5 droids, you have 8000 credits left"
-// ✅ Вызов makeTransaction(1000, 3, 15000) возвращает "You ordered 3 droids, you have 12000 credits left"
-// ✅ Вызов makeTransaction(5000, 10, 8000) возвращает "Insufficient funds!"
-// ✅ Вызов makeTransaction(2000, 8, 10000) возвращает "Insufficient funds!"
-// ✅ Вызов makeTransaction(500, 10, 5000) возвращает "You ordered 10 droids, you have 0 credits left"
-
-
-// function makeTransaction(pricePerDroid, orderedQuantity, customerCredits) {
-//   let message;
-// const totalPrice = pricePerDroid*orderedQuantity;
-//   if (totalPrice>customerCredits) {
-//     message = "Insufficient funds!";
-//   } else {
-//         message = `You ordered ${orderedQuantity} droids, you have ${customerCredits-totalPrice} credits left`;
-//   }
-//   return message;
-// }
-// console.log(makeTransaction(3000, 5, 23000));
-// console.log(makeTransaction(1000, 3, 15000));
-// console.log(makeTransaction(5000, 10, 8000));
-// console.log(makeTransaction(2000, 8, 10000));
-// console.log(makeTransaction(00, 10, 5000));
-
-
-
-// ❗ ЗАДАЧА #5
-
-// Функция checkPassword(password) получает пароль пользователя в параметр password, проверяет его на совпадение с паролем администратора в переменной ADMIN_PASSWORD и возвращает сообщение о результате сравнения, хранящееся в переменной message.
-
-// Если значение параметра password равно null, значит пользователь отменил операцию и в message записывается строка "Canceled by user!".
-// Если значение параметра password совпадает со значением ADMIN_PASSWORD, в переменную message присваивается строка "Welcome!".
-// Если ни одно из предыдущих условий не выполнилось, в переменную message записывается строка "Access denied, wrong password!".
+// удали переменную message
+// удали else
+// код должен работать так же, как и до оптимизации
 
 // ТЕСТЫ
 
 // ✅ Объявлена функция checkPassword(password)
 // ✅ Вызов checkPassword("mangohackzor") возвращает "Access denied, wrong password!"
-// ✅ Вызов checkPassword(null) возвращает "Canceled by user!"
 // ✅ Вызов checkPassword("polyhax") возвращает "Access denied, wrong password!"
 // ✅ Вызов checkPassword("jqueryismyjam") возвращает "Welcome!"
 
 
 // function checkPassword(password) {
-//   const ADMIN_PASSWORD = 'jqueryismyjam';
-//   let message;
-//   if (password === null) {
-//     message =  'Canceled by user!';
-//   } else if (password === ADMIN_PASSWORD) {
-//     message = 'Welcome!';
-//   } else {
-//     message = 'Access denied, wrong password!';
+//   const ADMIN_PASSWORD = "jqueryismyjam";
+//   if (password === ADMIN_PASSWORD) {
+//     return "Welcome!";
 //   }
-//   return message;
+//     return "Access denied, wrong password!";
 // }
 // console.log(checkPassword("mangohackzor"));
-// console.log(checkPassword(null));
 // console.log(checkPassword("polyhax"));
 // console.log(checkPassword("jqueryismyjam"));
 
 
 
-// ❗ ЗАДАЧА #6
+// ❗ ЗАДАЧА #3
 
-// Функция checkStorage(available, ordered) проверяет возможность оформления заказа и возвращает сообщение о результате. Она объявляет два параметра, значения которых будут задаваться во время её вызова.
+// Функция checkStorage проверяет возможность оформления заказа и возвращает сообщение о результате. Она принимает два параметра, значения которых будут задаваться во время её вызова.
 
 // available - доступное количество товаров на складе
-// ordered - единиц товара в заказе
+// ordered - количество единиц товара в заказе
 
-// Используя ветвления дополни код функции так, что:
-
-// Если в заказе еще нет товаров, то есть значение параметра ordered равно 0, в переменную message присваивается строка "There are no products in the order!".
-// Eсли товаров в заказе больше чем доступно товаров на складе, то в переменную message присваивается строка "Your order is too large, there are not enough items in stock!".
-// В противном случае в переменную message присваевается строка "The order is accepted, our manager will contact you".
+// Проведи рефакторинг кода функции checkStorage используя паттерн «ранний возврат».
 
 // ТЕСТЫ
 
 // ✅ Объявлена функция checkStorage(available, ordered)
 // ✅ Вызов checkStorage(100, 50) возвращает "The order is accepted, our manager will contact you"
-// ✅ Вызов checkStorage(100, 130) возвращает "Your order is too large, there are not enough items in stock!"
-// ✅ Вызов checkStorage(70, 0)возвращает "There are no products in the order!"
+// ✅ Вызов checkStorage(100, 130) возвращает "Your order is too large, not enough goods in stock!"
+// ✅ Вызов checkStorage(70, 0) возвращает "Your order is empty!"
 // ✅ Вызов checkStorage(200, 20) возвращает "The order is accepted, our manager will contact you"
-// ✅ Вызов checkStorage(200, 250) возвращает "Your order is too large, there are not enough items in stock!"
-// ✅ Вызов checkStorage(150, 0) возвращает "There are no products in the order!"
+// ✅ Вызов checkStorage(200, 250) возвращает "Your order is too large, not enough goods in stock!"
+// ✅ Вызов checkStorage(150, 0) возвращает "Your order is empty!"
 
 
 // function checkStorage(available, ordered) {
-//   let message;
-// if (ordered === 0) {
-//   message = "There are no products in the order!";
-// } else if (ordered > available) {
-//   message = "Your order is too large, there are not enough items in stock!";
-// } else {
-//   message = "The order is accepted, our manager will contact you";
-// }
-//   return message;
+//   if (ordered === 0) {
+//     return "Your order is empty!";
+//   }
+//   if (available < ordered) {
+//     return "The order is accepted, our manager will contact you";
+//   }
+//     return "Your order is too large, not enough goods in stock!";
 // }
 // console.log(checkStorage(100, 50));
 // console.log(checkStorage(100, 130));
@@ -226,574 +96,318 @@
 
 
 
-// ❗ ЗАДАЧА #7
+// ❗ ЗАДАЧА #4
 
-//Функция isNumberInRange(start, end, number) проверяет, входит ли число в промежуток. Она объявляет три параметра, значения которых будут задаваться во время её вызова:
-
-// number - число, вхождение которого проверяется
-// start - начало числового промежутка
-// end - конец числового промежутка
-
-// Присвой переменной isInRange выражение проверки вхождения number в числовой промеждуток от start до end.То есть число должно быть больше либо равно start и меньше либо равно end.Результатом выражения проверки будет буль true или false.
+// Объяви переменную fruits и присвой ей массив фруктов - строк "apple", "plum", "pear" и "orange".
 
 // ТЕСТЫ
 
-// ✅ Объявлена функция isNumberInRange(start, end, number)
-// ✅ В выражении проверки использован оператор &&
-// ✅ Вызов isNumberInRange(10, 30, 17) возвращает true
-// ✅ Вызов isNumberInRange(10, 30, 5) возвращает false
-// ✅ Вызов isNumberInRange(20, 50, 24) возвращает true
-// ✅ Вызов isNumberInRange(20, 50, 76) возвращает false
+// ✅ Объявлена переменная fruits
+// ✅ Значение переменной fruits это массив ["apple", "plum", "pear", "orange"]
 
 
-// function isNumberInRange(start, end, number) {
-//   const isInRange = (number >= start && number <= end);
-//   return isInRange;
-// }
-// console.log(isNumberInRange(10, 30, 17));
-// console.log(isNumberInRange(10, 30, 5));
-// console.log(isNumberInRange(20, 50, 24));
-// console.log(isNumberInRange(20, 50, 76));
+// const fruits = ["apple", "plum", "pear", "orange"];
+// console.log(fruits);
+
+
+
+// ❗ ЗАДАЧА #5
+
+// Объяви три переменные и присвой каждой из них значение, используя нотацию квадратных скобок.
+
+// firstElement -   первый элемент массива
+// secondElement    -   второй элемент массива
+// lastElement  -    последний элемент массива
+
+// ТЕСТЫ
+
+// ✅ Объявлена переменная firstElement
+// ✅ Значение переменной firstElement это строка "apple"
+// ✅ Объявлена переменная secondElement
+// ✅ Значение переменной secondElement это строка "plum"
+// ✅ Объявлена переменная lastElement
+// ✅ Значение переменной lastElement это строка "orange"
+
+
+// const fruits = ["apple", "plum", "pear", "orange"];
+// const firstElement = fruits[0];
+// const secondElement = fruits[1];
+// const lastElement = fruits[3];
+// console.log(firstElement);
+// console.log(secondElement);
+// console.log(lastElement);
+
+
+
+// ❗ ЗАДАЧА #6
+
+// Переопредели значения элементов с индексами 1 и 3. Замени "plum" на "peach", а "orange" на "banana".
+
+// ТЕСТЫ
+
+// ✅ Объявлена переменная fruits
+// ✅ Значение переменной fruits это массив ["apple", "peach", "pear", "banana"]
+
+
+// const fruits = ["apple", "plum", "pear", "orange"];
+// fruits[1] = "peach";
+// fruits[3] = "banana";
+// console.log(fruits);
+
+
+
+// ❗ ЗАДАЧА #7
+
+// Объяви переменную fruitsArrayLength и присвой ей длину массива fruits используя свойство length.
+
+// ТЕСТЫ
+
+// ✅ Объявлена переменная fruitsArrayLength
+// ✅ Значение переменной fruitsArrayLength это число 4
+
+
+// const fruits = ["apple", "peach", "pear", "banana"];
+// const fruitsArrayLength = fruits.length;
+// console.log(fruitsArrayLength);
 
 
 
 // ❗ ЗАДАЧА #8
 
-// Функция checkIfCanAccessContent(subType) проверяет, может ли пользователь получить доступ к контенту. Проверка происходит по типу подписки. Получить доступ могут только пользователи с подпиской pro или vip.
+// Объяви две переменные:
 
-// Присвой переменной canAccessContent выражение проверки подписки. Если значение параметра subType равно строкам "pro" или "vip", пользователь получит доступ. Результатом выражения проверки будет буль true или false.
+// lastElementIndex    -   Индекс последнего элемента масcива fruits через длина_массива - 1
+// lastElement -   Значение последнего элемента массива
 
 // ТЕСТЫ
 
-// ✅ Объявлена функция checkIfCanAccessContent(subType)
-// ✅ В выражении проверки использован оператор ||
-// ✅ Вызов checkIfCanAccessContent("pro") возвращает true
-// ✅ Вызов checkIfCanAccessContent("starter") возвращает false
-// ✅ Вызов checkIfCanAccessContent("vip") возвращает true
-// ✅ Вызов checkIfCanAccessContent("free") возвращает false
+// ✅ Объявлена переменная lastElementIndex
+// ✅ Значение переменной lastElementIndex это число 3
+// ✅ Объявлена переменная lastElement
+// ✅ Значение переменной lastElement это строка "banana"
 
 
-// function checkIfCanAccessContent(subType) {
-//   const canAccessContent = (subType === "pro" || subType === "vip");
-//   return canAccessContent;
-// }
-// console.log(checkIfCanAccessContent("pro"));
-// console.log(checkIfCanAccessContent("starter"));
-// console.log(checkIfCanAccessContent("vip"));
-// console.log(checkIfCanAccessContent("free"));
+// const fruits = ["apple", "peach", "pear", "banana"];
+// const lastElementIndex = fruits.length - 1;
+// const lastElement = fruits[lastElementIndex];
+// console.log(lastElementIndex);
+// console.log(lastElement);
 
 
 
 // ❗ ЗАДАЧА #9
 
-// Функция isNumberNotInRange(start, end, number) проверяет, не входит ли число в промежуток. То есть число должно быть меньше либо равно start и больше либо равно end. Результатом выражения проверки будет буль true или false.
-
-// Она объявляет три параметра, значения которых будут задаваться во время её вызова:
-
-// number - число, не вхождение которого проверяется
-// start - начало числового промежутка
-// end - конец числового промежутка
-
-// Присвой переменной isNotInRange выражение инверсии значения переменной isInRange используя оператор!.
+// Напиши функцию getExtremeElements(array) которая принимает один параметр array - массив элементов произвольной длины. Функция должна возвращать массив из двух элементов - первого и последнего элемента параметра array.
 
 // ТЕСТЫ
 
-// ✅ Объявлена функция isNumberNotInRange(start, end, number)
-// ✅ В выражении использован оператор !
-// ✅ Вызов isNumberNotInRange(10, 30, 17) возвращает false
-// ✅ Вызов isNumberNotInRange(10, 30, 5) возвращает true
-// ✅ Вызов isNumberNotInRange(20, 50, 24) возвращает false
-// ✅ Вызов isNumberNotInRange(20, 50, 76) возвращает true
+// ✅ Объявлена функция getExtremeElements(array)
+// ✅ Вызов getExtremeElements([1, 2, 3, 4, 5]) возвращает [1, 5]
+// ✅ Вызов getExtremeElements(["Earth", "Mars", "Venus"]) возвращает ["Earth", "Venus"]
+// ✅ Вызов getExtremeElements(["apple", "peach", "pear", "banana"]) возвращает ["apple", "banana"]
 
 
-// function isNumberNotInRange(start, end, number) {
-//   const isInRange = number >= start && number <= end;
-//   const isNotInRange = !isInRange;
-//   return isNotInRange;
+// function getExtremeElements(array) {
+// return [array[0], array[array.length - 1]];
 // }
-// console.log(isNumberNotInRange(10, 30, 17));
-// console.log(isNumberNotInRange(10, 30, 5));
-// console.log(isNumberNotInRange(20, 50, 24));
-// console.log(isNumberNotInRange(20, 50, 76));
+// console.log(getExtremeElements([1, 2, 3, 4, 5]));
+// console.log(getExtremeElements(["Earth", "Mars", "Venus"]));
+// console.log(getExtremeElements(["apple", "peach", "pear", "banana"]));
 
 
 
 // ❗ ЗАДАЧА #10
 
-// Функция getDiscount(totalSpent) определяет значение скидки в зависимости от общей суммы потраченных денег (параметр totalSpent) в магазине за всё время (партнёрская программа). Скидка записывается в переменную discount и возвращается из функции как результат её работы.
-
-// Используя ветвления и логические операторы, дополни код функции.
-
-// Если потрачено от 50000 ( включительно ) или больше кредитов - скидка 10% (золотой партнёр)
-// Если потрачено от 20000 (включительно) до 50000 кредитов - скидка 5% (серебрянный партнёр)
-// Если потрачено от 5000 (включительно) до 20000 кредитов - скидка 2% (бронзовый партнёр)
-// Если потрачено меньше чем 5000 кредитов - скидка 0 (базовый партнёр)
-// Значения скидок каждого уровня хранятся в одноимённых константах BASE_DISCOUNT, BRONZE_DISCOUNT, SILVER_DISCOUNT и GOLD_DISCOUNT.
+// Дополни код функции splitMessage(message, delimiter) так, чтобы она возвращала в переменной words результат разделения строки message по разделителю delimiter - массив строк.
 
 // ТЕСТЫ
 
-// ✅ Объявлена функция getDiscount(totalSpent)
-// ✅ Вызов getDiscount(137000) возвращает 0.1
-// ✅ Вызов getDiscount(46900) возвращает 0.05
-// ✅ Вызов getDiscount(8250) возвращает 0.02
-// ✅ Вызов getDiscount(1300) возвращает 0
-// ✅ Вызов getDiscount(5000) возвращает 0.02
-// ✅ Вызов getDiscount(20000) возвращает 0.05
-// ✅ Вызов getDiscount(50000) возвращает 0.1
+// ✅ Объявлена функция splitMessage(message, delimiter)
+// ✅ Вызов splitMessage("Mango hurries to the train", " ") возвращает ["Mango", "hurries", "to", "the", "train"]
+// ✅ Вызов splitMessage("Mango", "") возвращает ["M", "a", "n", "g", "o"]
+// ✅ Вызов splitMessage("best_for_week", "_") возвращает ["best", "for", "week"]
 
 
-// function getDiscount(totalSpent) {
-//   const BASE_DISCOUNT = 0;
-//   const BRONZE_DISCOUNT = 0.02;
-//   const SILVER_DISCOUNT = 0.05;
-//   const GOLD_DISCOUNT = 0.1;
-//   let discount;
-// if (totalSpent >= 50000) {
-// discount = GOLD_DISCOUNT;
-// } else if (totalSpent >= 20000) {
-//   discount = SILVER_DISCOUNT;
-// } else if (totalSpent >= 5000) {
-//   discount = BRONZE_DISCOUNT;
-// } else
-//   discount = BASE_DISCOUNT;
-//   return discount;
+// function splitMessage(message, delimiter) {
+//   let words;
+// words = message.split(delimiter);
+//   return words;
 // }
-// console.log(getDiscount(137000));
-// console.log(getDiscount(46900));
-// console.log(getDiscount(8250));
-// console.log(getDiscount(1300));
-// console.log(getDiscount(5000));
-// console.log(getDiscount(20000));
-// console.log(getDiscount(50000));
+// console.log(splitMessage("Mango hurries to the train", " "));
+// console.log(splitMessage("Mango", ""));
+// console.log(splitMessage("best_for_week", "_"));
 
 
 
 // ❗ ЗАДАЧА #11
 
-// Выполни рефакторинг решения задачи «Склад товаров», заменив инструкцию if...else тернарным оператором.
+// Сервису гравировки украшений нужна функция, которая бы автоматически считала цену гравировки, в зависимости от количества слов и цены за слово.
+
+// Объявлена функция calculateEngravingPrice(message, pricePerWord). Эта функция принимает строку, состоящую из слов разделённых только пробелами (параметр message) и цену гравировки одного слова (параметр pricePerWord).
+
+// Напиши тело функции, чтобы она возвращала общую стоимость гравировки всех слов в строке.
 
 // ТЕСТЫ
 
-// ✅ Объявлена функция checkStorage(available, ordered).
-// ✅ Использован тернарный оператор.
-// ✅ Вызов checkStorage(100, 50) возвращает "The order is accepted, our manager will contact you"
-// ✅ Вызов checkStorage(100, 130) возвращает "Not enough goods in stock!"
-// ✅ Вызов checkStorage(200, 20) возвращает "The order is accepted, our manager will contact you"
-// ✅ Вызов checkStorage(200, 150) возвращает "The order is accepted, our manager will contact you"
-// ✅ Вызов checkStorage(150, 180) возвращает "Not enough goods in stock!"
+// ✅ Объявлена функция calculateEngravingPrice(message, pricePerWord)
+// ✅ Вызов calculateEngravingPrice("JavaScript is in my blood", 10) возвращает 50
+// ✅ Вызов calculateEngravingPrice("JavaScript is in my blood", 20) возвращает 100
+// ✅ Вызов calculateEngravingPrice("Web-development is creative work", 40) возвращает 160
+// ✅ Вызов calculateEngravingPrice("Web-development is creative work", 20) возвращает 80
 
 
-// function checkStorage(available, ordered) {
-//   let message;
-// message = ordered > available ? "Not enough goods in stock!" : "The order is accepted, our manager will contact you";
-//   return message;
+// function calculateEngravingPrice(message, pricePerWord) {
+// const words = message.split(" ");
+//   const wordCount = words.length;
+//   return wordCount * pricePerWord;
 // }
-// console.log(checkStorage(100, 50));
-// console.log(checkStorage(100, 130));
-// console.log(checkStorage(200, 20));
-// console.log(checkStorage(200, 150));
-// console.log(checkStorage(150, 180));
+// console.log(calculateEngravingPrice("JavaScript is in my blood", 10));
+// console.log(calculateEngravingPrice("JavaScript is in my blood", 20));
+// console.log(calculateEngravingPrice("Web-development is creative work", 40));
+// console.log(calculateEngravingPrice("Web-development is creative work", 20));
 
 
 
 // ❗ ЗАДАЧА #12
 
-// Функция checkPassword(password) сравнивает переданный ей пароль (параметр password) с сохранённым паролем администратора (константа ADMIN_PASSWORD) и возвращает строку с сообщением о результате.
-
-// Используя тернарный оператор дополни функцию так, что:
-
-// Если значения password и ADMIN_PASSWORD совпадают, присвой переменной message строку "Access is allowed".
-// В противном случае, присвой message строку "Access denied, wrong password!".
+// Дополни код функции makeStringFromArray(array, delimiter) так, чтобы она возвращала в переменной string результат соединения элементов массива array c разделителем delimiter - строку.
 
 // ТЕСТЫ
 
-// ✅ Объявлена функция checkPassword(password)
-// ✅ Использован тернарный оператор
-// ✅ Вызов checkPassword("jqueryismyjam") возвращает "Access is allowed"
-// ✅ Вызов checkPassword("angul4r1sl1f3") возвращает "Access denied, wrong password!"
-// ✅ Вызов checkPassword("r3actsux") возвращает "Access denied, wrong password!"
+// ✅ Объявлена функция makeStringFromArray(array, delimiter)
+// ✅ Вызов makeStringFromArray(["Mango", "hurries", "to", "the", "train"], " ") возвращает "Mango hurries to the train"
+// ✅ Вызов makeStringFromArray(["M", "a", "n", "g", "o"], "") возвращает "Mango"
+// ✅ Вызов makeStringFromArray(["top", "picks", "for", "you"], "_") возвращает "top_picks_for_you"
 
 
-// function checkPassword(password) {
-//   const ADMIN_PASSWORD = "jqueryismyjam";
-//   let message;
-// message = password === ADMIN_PASSWORD ? "Access is allowed" : "Access denied, wrong password!";
-//   return message;
+// function makeStringFromArray(array, delimiter) {
+//   let string;
+// string = array.join(delimiter)
+//   return string;
 // }
-// console.log(checkPassword("jqueryismyjam"));
-// console.log(checkPassword("angul4r1sl1f3"));
-// console.log(checkPassword("r3actsux"));
+// console.log(makeStringFromArray(["Mango", "hurries", "to", "the", "train"], " "));
+// console.log(makeStringFromArray(["M", "a", "n", "g", "o"], ""));
+// console.log(makeStringFromArray(["top", "picks", "for", "you"], "_"));
 
 
 
 // ❗ ЗАДАЧА #13
 
-// Функция getSubscriptionPrice(type) получает строку с типом подписки пользователя (параметр type), проверяет её на совпадение с тремя возможными типами ежемесячной подписки и возвращает цену хранящуюся в переменной price.
+// // Термин slug - это человеко-понятный уникальный идентификатор, который используется в веб-разработке для создания читабельных URL-адресов.
 
-// Если значение параметра type это строка:
+// Например, вместо того чтобы пользователь увидел в адресной строке mysite.com/posts/1q8fh74tx, можно сделать slug из названия статьи. В результате адрес получится более приятным для восприятия: mysite.com/posts/arrays-for-begginers.
 
-// "starter" - цена подписки 0 кредитов.
-// "professional" - цена подписки 20 кредитов.
-// "organization" - цена подписки 50 кредитов.
+// Напиши функцию slugify(title) которая принимает заголовок статьи, параметр title, и возвращает slug, созданный из этой строки.
 
-// Изначально в теле функции была инструкция if...else, которая выглядела вот так.
-
-// if (type === "starter") {
-//   price = 0;
-// } else if (type === "professional") {
-//   price = 20;
-// } else if (type === "organization") {
-//   price = 50;
-// }
-
-// После рефакторинга инструкция if..else была заменена на switch.Дополни код инструкции switch, чтобы функция работала правильно.
+// Значением параметра title будут строки, слова которых разделены только пробелами
+// Все символы slug должны быть в нижнем регистре
+// Все слова slug должна быть разделены тире
 
 // ТЕСТЫ
 
-// ✅ Объявлена функция getSubscriptionPrice(type)
-// ✅ Вызов getSubscriptionPrice("professional") возвращает число 20
-// ✅ Вызов getSubscriptionPrice("organization") возвращает число 50
-// ✅ Вызов getSubscriptionPrice("starter") возвращает число 0
+// ✅ Объявлена функция slugify(title)
+// ✅ Вызов slugify("Arrays for begginers") возвращает "arrays-for-begginers"
+// ✅ Вызов slugify("English for developer") возвращает "english-for-developer"
+// ✅ Вызов slugify("Ten secrets of JavaScript") возвращает "ten-secrets-of-javascript"
+// ✅ Вызов slugify("How to become a JUNIOR developer in TWO WEEKS") возвращает "how-to-become-a-junior-developer-in-two-weeks"
 
 
-// function getSubscriptionPrice(type) {
-//   let price;
-//  switch (type) {
-//     case "starter":
-//       price = 0;
-//       break;
-//     case "professional":
-//       price = 20;
-//       break;
-//     case "organization":
-//       price = 50;
-//       break;
-//   }
-//   return price;
+// function slugify(title) {
+//   let slug;
+//   slug = title.toLowerCase().split(' ').join('-');
+//   return slug;
 // }
-// console.log(getSubscriptionPrice("professional"));
-// console.log(getSubscriptionPrice("organization"));
-// console.log(getSubscriptionPrice("starter"));
+// console.log(slugify("Arrays for begginers"));
+// console.log(slugify("English for developer"));
+// console.log(slugify("Ten secrets of JavaScript"));
+// console.log(slugify("How to become a JUNIOR developer in TWO WEEKS"));
 
 
 
 // ❗ ЗАДАЧА #14
 
-// Функция checkPassword(password) получает пароль в параметр password, проверяет его на совпадение с паролем администратора в переменной ADMIN_PASSWORD и возвращает сообщение о результате сравнения, хранящееся в переменной message.
+// Дополни код так, чтобы переменные содержали частичные копии исходного массива fruits.
 
-// Если значение параметра password:
-
-// равно null, значит пользователь отменил операцию и в message записывается строка "Canceled by user!".
-// совпадает со значением ADMIN_PASSWORD, в переменную message присваивается строка "Welcome!".
-// не удовлетворяет ни одному из предыдущих условий, в переменную message записывается строка "Access denied, wrong password!".
-
-// Проведи рефакторинг кода, заменив инструкцию if..else на switch, и не забудь о блоке default (аналог else).
+// firstTwoEls - массив из первых двух элементов
+// nonExtremeEls - массив из всех элементов кроме первого и последнего
+// lastThreeEls - массив из трёх последних элементов
 
 // ТЕСТЫ
 
-// ✅ Объявлена функция checkPassword(password)
-// ✅ Вызов checkPassword("mangohackzor") возвращает "Access denied, wrong password!"
-// ✅ Вызов checkPassword(null) возвращает "Canceled by user!"
-// ✅ Вызов checkPassword("polyhax") возвращает "Access denied, wrong password!"
-// ✅ Вызов checkPassword("jqueryismyjam") возвращает "Welcome!"
+// ✅ Объявлена переменная fruits
+// ✅ Значение переменной fruits это массив ["apple", "plum", "pear", "orange", "banana"]
+// ✅ Объявлена переменная firstTwoEls
+// ✅ Значение переменной firstTwoEls это массив ["apple", "plum"]
+// ✅ Объявлена переменная nonExtremeEls
+// ✅ Значение переменной nonExtremeEls это массив ["plum", "pear", "orange"]
+// ✅ Объявлена переменная lastThreeEls
+// ✅ Значение переменной lastThreeEls это массив ["pear", "orange", "banana"]
+// ✅ Переменной lastThreeEls присвоена копия части массива fruits после применения метода slice с правильными аргументами
 
 
-// function checkPassword(password) {
-//   const ADMIN_PASSWORD = "jqueryismyjam";
-//   let message;
-//   if (password === null) {
-//     message = "Canceled by user!";
-//   } else if (password === ADMIN_PASSWORD) {
-//     message = "Welcome!";
-//   } else {
-//     message = "Access denied, wrong password!";
-//   }
-// switch (password) {
-//   case null:
-//     message = "Canceled by user!";
-//     break;
-//   case ADMIN_PASSWORD:
-//     message = "Welcome!";
-//     break;
-//   default:
-//     message = "Access denied, wrong password!";
-// }
-//   return message;
-// }
-// console.log(checkPassword("mangohackzor"));
-// console.log(checkPassword(null));
-// console.log(checkPassword("polyhax"));
-// console.log(checkPassword("jqueryismyjam"));
+// const fruits = ['apple', 'plum', 'pear', 'orange', 'banana'];
+// const firstTwoEls = fruits.slice(0, 2);
+// const nonExtremeEls = fruits.slice(1, fruits.length - 1);
+// const lastThreeEls = fruits.slice(-3);
+// console.log(fruits);
+// console.log(firstTwoEls);
+// console.log(nonExtremeEls);
+// console.log(lastThreeEls);
 
 
 
 // ❗ ЗАДАЧА #15
 
-// Функция getShippingCost(country) должна проверять возможность доставки товара в страну пользователя (параметр country) и возвращать сообщение о результате хранящееся в переменной message. Обязательно используй инструкцию switch.
-
-// Формат возвращаемой строки "Shipping to <country> will cost <price> credits", где вместо <country> и <price> необходимо подставить соотвествующие значения.
-
-// Список стран и стоимость доставки:
-
-// China - 100 кредитов
-// Chile - 250 кредитов
-// Australia - 170 кредитов
-// Jamaica - 120 кредитов
-
-// Из списка видно, что доставка есть не везде.Если указанной страны нет в списке, то функция должна вернуть строку "Sorry, there is no delivery to your country"
+// Дополни код так, чтобы в переменной allClients получился массив всех элементов массивов oldClients и newClients.
 
 // ТЕСТЫ
 
-// ✅ Объявлена функция getShippingCost(country)
-// ✅ В теле функции использована инструкция switch
-// ✅ Вызов getShippingCost("Australia") возвращает "Shipping to Australia will cost 170 credits"
-// ✅ Вызов getShippingCost("Germany") возвращает "Sorry, there is no delivery to your country"
-// ✅ Вызов getShippingCost("China") возвращает "Shipping to China will cost 100 credits"
-// ✅ Вызов getShippingCost("Chile") возвращает "Shipping to Chile will cost 250 credits"
-// ✅ Вызов getShippingCost("Jamaica") возвращает "Shipping to Jamaica will cost 120 credits"
-// ✅ Вызов getShippingCost("Sweden") возвращает "Sorry, there is no delivery to your country"
+// ✅ Объявлена переменная oldClients
+// ✅ Значение переменной oldClients это массив ["Mango", "Ajax", "Poly", "Kiwi"]
+// ✅ Объявлена переменная newClients
+// ✅ Значение переменной newClients это массив ["Peach", "Houston"]
+// ✅ Объявлена переменная allClients
+// ✅ Значение переменной allClients это массив ["Mango", "Ajax", "Poly", "Kiwi", "Peach", "Houston"]
+// ✅ Переменной allClients присвоен массив после применения метода concat с правильными аргументами
 
 
-// function getShippingCost(country) {
-//   let message;
-// switch (country) {
-//   case "China":
-//     message = "Shipping to China will cost 100 credits";
-//     break;
-//   case "Chile":
-//     message = "Shipping to Chile will cost 250 credits";
-//     break;
-//   case "Australia":
-//     message = "Shipping to Australia will cost 170 credits";
-//     break;
-//   case "Jamaica":
-//     message = "Shipping to Jamaica will cost 120 credits";
-//     break;
-//   default:
-//     message = "Sorry, there is no delivery to your country";
-// }
-//   return message;
-// }
-// console.log(getShippingCost("Australia"));
-// console.log(getShippingCost("Germany"));
-// console.log(getShippingCost("China"));
-// console.log(getShippingCost("Chile"));
-// console.log(getShippingCost("Jamaica"));
-// console.log(getShippingCost("Sweden"));
+// const oldClients = ['Mango', 'Ajax', 'Poly', 'Kiwi'];
+// const newClients = ['Peach', 'Houston'];
+// const allClients = oldClients.concat(newClients);
+// console.log(oldClients);
+// console.log(newClients);
+// console.log(allClients);
 
 
 
 // ❗ ЗАДАЧА #16
 
-// Функция getNameLength(name) принимает имя (параметр name) и возвращает строку, в которой указана его длина. Дополни шаблонную строку в переменной message длиной строки из параметра name.
+// // Напиши функцию makeArray(firstArray, secondArray, maxLength) для создания нового массива со всеми элементами двух исходных firstArray и secondArray. Параметр maxLength содержит максимально допустимую длину нового массива.
+
+// Если количество элементов нового массива больше maxLength, функция должна вернуть копию массива длиной maxLength элементов. В противном случае функция должна вернуть новый массив целиком.
 
 // ТЕСТЫ
 
-// ✅ Объявлена функция getNameLength(name)
-// ✅ Вызов функции getNameLength("Poly") возвращает "Name Poly is 4 characters long"
-// ✅ Вызов функции getNameLength("Harambe") возвращает "Name Harambe is 6 characters long"
-// ✅ Вызов функции getNameLength("Billy") возвращает "Name Billy is 5 characters long"
-// ✅ Вызов функции getNameLength("Joe") возвращает "Name Joe is 3 characters long"
+// ✅ Объявлена функция makeArray(firstArray, secondArray, maxLength)
+// ✅ Вызов makeArray(["Mango", "Poly"], ["Ajax", "Chelsea"], 3) возвращает ["Mango", "Poly", "Ajax"]
+// ✅ Вызов makeArray(["Mango", "Poly", "Houston"], ["Ajax", "Chelsea"], 4) возвращает ["Mango", "Poly", "Houston", "Ajax"]
+// ✅ Вызов makeArray(["Mango"], ["Ajax", "Chelsea", "Poly", "Houston"], 3) возвращает ["Mango", "Ajax", "Chelsea"]
+// ✅ Вызов makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus"], 2) возвращает ["Earth", "Jupiter"]
+// ✅ Вызов makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus"], 4) возвращает ["Earth", "Jupiter", "Neptune", "Uranus"]
+// ✅ Вызов makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus", "Venus"], 0) возвращает []
+// ✅ Вызов функции makeArray() со случайными массивами и случайным числом возвращает правильный массив
 
 
-// function getNameLength(name) {
-//   const message = `Name ${name} is ${name.length} characters long`;
-//   return message;
-// }
-// console.log(getNameLength("Poly"));
-// console.log(getNameLength("Harambe"));
-// console.log(getNameLength("Billy"));
-// console.log(getNameLength("Joe"));
-
-
-
-// ❗ ЗАДАЧА #17
-
-// Дополни код присвоив объявленным переменным выражения обращения к соответствующим элементам или свойствам строки в переменной course.
-
-// courseTopicLength - длина строки.
-// firstElement - первый символ строки.
-// lastElement - последний символ строки.
-
-// ТЕСТЫ
-
-// ✅ Объявлена переменная courseTopic
-// ✅ Значение переменной courseTopic это строка "JavaScript essentials"
-// ✅ Объявлена переменная courseTopicLength
-// ✅ Значение переменной courseTopicLength это число 21
-// ✅ Объявлена переменная firstElement
-// ✅ Значение переменной firstElement это строка "J"
-// ✅ Объявлена переменная lastElement
-// ✅ Значение переменной lastElement это строка "s"
-
-
-// const courseTopic = "JavaScript essentials";
-// const courseTopicLength = courseTopic.length;
-// const firstElement = courseTopic[0];
-// const lastElement = courseTopic[courseTopic.length - 1];
-// console.log(courseTopic);
-// console.log(courseTopicLength);
-// console.log(firstElement);
-// console.log(lastElement);
-
-
-
-// ❗ ЗАДАЧА #18
-
-// Функция getSubstring(string, length) принимает строку и возвращает подстроку от начала и до length символов. Она объявляет два параметра, значения которых будут задаваться во время её вызова:
-
-// string - оригинальная строка
-// length - количество символов с начала строки для подстроки
-
-// Присвой переменной substring выражение создания подстроки длинной length символов(от начала) из строки string.
-
-// ТЕСТЫ
-
-// ✅ Объявлена функция getSubstring(string, length)
-// ✅ Вызов функции getSubstring("Hello world", 3) возвращает "Hel"
-// ✅ Вызов функции getSubstring("Hello world", 6) возвращает "Hello"
-// ✅ Вызов функции getSubstring("Hello world", 8) возвращает "Hello wo"
-// ✅ Вызов функции getSubstring("Hello world", 11) возвращает "Hello world"
-// ✅ Вызов функции getSubstring("Hello world", 0) возвращает ""
-
-
-// function getSubstring(string, length) {
-//   const substring = string.slice(0, length);
-//   return substring;
-// }
-// console.log(getSubstring("Hello world", 3));
-// console.log(getSubstring("Hello world", 6));
-// console.log(getSubstring("Hello world", 8));
-// console.log(getSubstring("Hello world", 11));
-// console.log(getSubstring("Hello world", 0));
-
-
-
-// ❗ ЗАДАЧА #19
-
-// Функция formatMessage(message, maxLength) принимает строку (параметр message) и форматирует её, если длина превышает значение в параметре maxLength.
-
-// Дополни код функции так, что если длина строки:
-
-// не превышает maxLength, функция возвращает её в исходном виде.
-// больше maxLength, то функция обрезает строку до maxLength символов и добавляет в конец троеточие "...", после чего возвращает укороченную версию.
-
-// ТЕСТЫ
-
-// ✅ Объявлена функция formatMessage(message, maxLength)
-// ✅ Вызов функции formatMessage("Curabitur ligula sapien", 16) возвращает "Curabitur ligula..."
-// ✅ Вызов функции formatMessage("Curabitur ligula sapien", 23) возвращает "Curabitur ligula sapien"
-// ✅ Вызов функции formatMessage("Vestibulum facilisis purus nec", 20) возвращает "Vestibulum facilisis..."
-// ✅ Вызов функции formatMessage("Vestibulum facilisis purus nec", 30) возвращает "Vestibulum facilisis purus nec"
-// ✅ Вызов функции formatMessage("Nunc sed turpis a felis in nunc fringilla", 15) возвращает "Nunc sed turpis..."
-// ✅ Вызов функции formatMessage("Nunc sed turpis a felis in nunc fringilla", 41) возвращает "Nunc sed turpis a felis in nunc fringilla"
-
-
-// function formatMessage(message, maxLength) {
-//   let result;
-//   result = message.length;
-//   if (result <= maxLength) {
-//     return message;
-//   } else {
-//     return message.slice(0, maxLength) + "...";
+// function makeArray(firstArray, secondArray, maxLength) {
+//   const combinedArray = firstArray.concat(secondArray);
+//   if (combinedArray.length > maxLength) {
+//     return combinedArray.slice(0, maxLength);
 //   }
-//   return result;
-// }
-// console.log(formatMessage("Curabitur ligula sapien", 16));
-// console.log(formatMessage("Curabitur ligula sapien", 23));
-// console.log(formatMessage("Vestibulum facilisis purus nec", 20));
-// console.log(formatMessage("Vestibulum facilisis purus nec", 30));
-// console.log(formatMessage("Nunc sed turpis a felis in nunc fringilla", 15));
-// console.log(formatMessage("Nunc sed turpis a felis in nunc fringilla", 41));
-
-
-
-// ❗ ЗАДАЧА #20
-
-// Функция normalizeInput(input) принимает строку (параметр input) и возвращает такую же строку, но в нижнем регистре. Присвой переменной normalizedInput выражение создания строки в нижнем регистре из параметра input.
-
-// ТЕСТЫ
-
-// ✅ Объявлена функция normalizeInput(input)
-// ✅ Вызов функции normalizeInput("Hello world") возвращает "hello world"
-// ✅ Вызов функции normalizeInput("This ISN'T SpaM") возвращает "this isn't spam"
-// ✅ Вызов функции normalizeInput("Big SALE") возвращает "big sale"
-
-
-// function normalizeInput(input) {
-//   const normalizedInput = input.toLowerCase();;
-//   return normalizedInput;
-// }
-// console.log(normalizeInput("Hello world"));
-// console.log(normalizeInput("This ISN'T SpaM"));
-// console.log(normalizeInput("Big SALE"));
-
-
-
-// ❗ ЗАДАЧА #21
-
-// Функция checkForName(fullname, name) принимает два параметра и возвращает буль true или false - результат проверки вхождения подстроки name в строку fullname.
-
-// fullname - полное имя состоящее из двух слов (имени и фамилии) разделённых пробелом.
-// name - имя для проверки вхождения в полное имя.
-
-// Присвой переменной result выражение проверки вхождения имени(параметр name), в полное имя(параметр fullname).Пусть функция строго относится к регистру букв, то есть «Петя» и «петя» для неё разные имена.
-
-// ТЕСТЫ
-
-// ✅ Объявлена функция checkForName(fullname, name).
-// ✅ Вызов функции checkForName("Egor Kolbasov", "Egor") возвращает true
-// ✅ Вызов функции checkForName("Egor Kolbasov", "egor") возвращает false
-// ✅ Вызов функции checkForName("Egor Kolbasov", "egOr") возвращает false
-// ✅ Вызов функции checkForName("Egor Kolbasov", "Zhenya") возвращает false
-// ✅ Вызов функции checkForName("Vadim Nekrasov", "Vadim") возвращает true
-// ✅ Вызов функции checkForName("Vadim Nekrasov", "vadim") возвращает false
-// ✅ Вызов функции checkForName("Vadim Nekrasov", "Dima") возвращает false
-
-
-// function checkForName(fullName, name) {
-//  const result = fullName.includes(name);
-//   return result;
-// }
-// console.log(checkForName("Egor Kolbasov", "Egor"));
-// console.log(checkForName("Egor Kolbasov", "egor"));
-// console.log(checkForName("Egor Kolbasov", "egOr"));
-// console.log(checkForName("Egor Kolbasov", "Zhenya"));
-// console.log(checkForName("Vadim Nekrasov", "Vadim"));
-// console.log(checkForName("Vadim Nekrasov", "vadim"));
-// console.log(checkForName("Vadim Nekrasov", "Dima"));
-
-
-
-// ❗ ЗАДАЧА #22
-
-// Функция checkForSpam(message) принимает строку (параметр message), проверяет её на содержание запрещенных слов spam и sale, и возвращает результат проверки. Слова в строке параметра message могут быть в произвольном регистре, например SPAM или sAlE.
-
-// Если нашли запрещенное слово (spam или sale) то функция возвращает буль true.
-// Если в строке нет запрещенных слов, функция возвращает буль false.
-
-// ТЕСТЫ
-
-// ✅ Объявлена функция checkForSpam(message).
-// ✅ Вызов функции checkForSpam("Latest technology news") возвращает false
-// ✅ Вызов функции checkForSpam("JavaScript weekly newsletter")возвращает false
-// ✅ Вызов функции checkForSpam("Get best sale offers now!") возвращает true
-// ✅ Вызов функции checkForSpam("Amazing SalE, only tonight!") возвращает true
-// ✅ Вызов функции checkForSpam("Trust me, this is not a spam message") возвращает true
-// ✅ Вызов функции checkForSpam("Get rid of sPaM emails. Our book in on sale!") возвращает true
-// ✅ Вызов функции checkForSpam("[SPAM] How to earn fast money?") возвращает true
-
-
-// function checkForSpam(message) {
-//   let result;
-// message = message.toLowerCase();
-//   result = message.includes("spam") || message.includes("sale");
-//   return result;
-// }
-// console.log(checkForSpam("Latest technology news"));
-// console.log(checkForSpam("JavaScript weekly newsletter"));
-// console.log(checkForSpam("Get best sale offers now!"));
-// console.log(checkForSpam("Amazing SalE, only tonight!"));
-// console.log(checkForSpam("Trust me, this is not a spam message"));
-// console.log(checkForSpam("Get rid of sPaM emails. Our book in on sale!"));
-// console.log(checkForSpam("[SPAM] How to earn fast money?"));
+//   return combinedArray;
+//   }
+// console.log(makeArray(["Mango", "Poly"], ["Ajax", "Chelsea"], 3));
+// console.log(makeArray(["Mango", "Poly", "Houston"], ["Ajax", "Chelsea"], 4));
+// console.log(makeArray(["Mango"], ["Ajax", "Chelsea", "Poly", "Houston"], 3));
+// console.log(makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus"], 2));
+// console.log(makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus"], 4));
+// console.log(makeArray(["Earth", "Jupiter"], ["Neptune", "Uranus", "Venus"], 0));
